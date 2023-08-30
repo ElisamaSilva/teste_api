@@ -1,15 +1,15 @@
 import contrato from '../contracts/usuarios.contract'
 
-describe ('Testes da Funcionalidade Usuários', () => {
+describe('Testes da Funcionalidade Usuários', () => {
 
-let token
+  let token
   before(() => {
-    cy.token('fulano@qa.com', 'teste').then(tkn =>{ token = tkn})
+    cy.token('fulano@qa.com', 'teste').then(tkn => { token = tkn })
   });
 
   it('Deve validar contrato de usuários', () => {
     cy.request('usuarios').then(response => {
-return contrato.validateAsync(response.body)
+      return contrato.validateAsync(response.body)
 
     })
   });
@@ -94,7 +94,9 @@ return contrato.validateAsync(response.body)
               expect(response.status).to.equal(200)
             })
           })
-      });
-    });
+      })
+    })
 
   })
+
+});
